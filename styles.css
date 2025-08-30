@@ -1,0 +1,59 @@
+:root{--bg:#0b1220;--panel:#0f1a30;--fg:#e6ecff;--muted:#9bb1df;--accent:#3b82f6;--accent-strong:#2563eb;--ring:color-mix(in oklab, var(--accent) 40%, transparent);--border: #1f2a44;--card:#0e172a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(140% 100% at 0% 0%,#0a1324 0%,#0b1220 60%,#0a0f1f 100%);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial}
+.shell{display:grid;grid-template-columns:260px 1fr;min-height:100dvh}
+.sidebar{position:sticky;top:0;align-self:start;border-right:1px solid var(--border);padding:20px 16px;display:flex;flex-direction:column;gap:16px;background:linear-gradient(180deg,#0d1730 0%,#0a1224 100%)}
+.brand{font-weight:900;letter-spacing:.4px;font-size:20px;color:#fff}
+.side-nav{display:grid;gap:10px}
+.side-item{text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--fg);cursor:pointer;transition:background .2s ease,transform .08s ease, border-color .2s ease}
+.side-item:hover{background:#0f1a30}
+.side-item.active{background:linear-gradient(180deg,#112245,#0d1b36);border-color:#2b3d66;color:#dbe8ff}
+.side-footer{margin-top:auto;font-size:12px;opacity:.6}
+.content{padding:36px}
+.view{display:none}
+.view.view-active{display:block}
+
+.ingest-card{max-width:980px;margin:0 auto;display:grid;gap:18px}
+.ingest-title{font-size:clamp(22px,4vmin,28px);margin:0;color:#dbe8ff}
+.dropzone{position:relative;border:1px dashed #27406d;border-radius:18px;padding:min(6vmin,40px);display:grid;gap:14px;place-items:center;background:linear-gradient(180deg,#0c1730 0%,#0b1429 100%);outline:none;transition:box-shadow .25s ease, transform .15s ease, background .25s ease}
+.dropzone:focus{box-shadow:0 0 0 4px var(--ring)}
+.dropzone.is-dragover{box-shadow:0 0 0 4px var(--ring), 0 20px 60px rgba(20,40,120,.35); transform: translateY(-2px);}
+.dz-illustration{width:100%;height:180px;border-radius:12px;background:
+  radial-gradient(60% 80% at 20% 0%, rgba(59,130,246,.4), transparent 60%),
+  radial-gradient(60% 80% at 80% 100%, rgba(37,99,235,.35), transparent 60%),
+  linear-gradient(180deg,#0d1c39,#0b1429)}
+.dz-help{margin:0;opacity:.75}
+.dz-sep{color:var(--muted);font-size:12px;letter-spacing:2px}
+.dz-row{width:100%;display:grid;grid-template-columns:1fr auto;gap:10px}
+.dz-input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0c152b;color:var(--fg)}
+.btn{padding:12px 16px;border-radius:12px;border:1px solid #2b3d66;background:linear-gradient(180deg,#1d3c77,#173261);cursor:pointer;font-weight:700;color:#dbe8ff}
+.btn.primary{background:linear-gradient(180deg,#2b5fb5,#1e3b83)}
+.btn.ghost{background:transparent;border:1px solid var(--border)}
+.btn:active{transform:scale(.98)}
+.link{color:#8ab4ff;text-decoration:underline;cursor:pointer}
+
+.preview{display:grid;gap:8px;padding:12px;border:1px dashed #27406d;border-radius:12px;background:#0a142b}
+.preview img{max-width:100%;border-radius:12px}
+.preview .meta{font-size:12px;opacity:.7}
+
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.folder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.folder-card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#0b152d;cursor:pointer;transition:transform .08s ease,box-shadow .2s ease, border-color .2s ease}
+.folder-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25);border-color:#2b3d66}
+.folder-name{font-weight:800}
+.folder-count{font-size:12px;opacity:.7}
+
+.items{margin-top:20px;display:grid;gap:10px}
+.item{border:1px solid var(--border);border-radius:14px;padding:12px;display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;background:#0b152d}
+.item-thumb{width:56px;height:56px;border-radius:10px;background:#101b35;object-fit:cover}
+.item-title{font-weight:700}
+.item-meta{font-size:12px;opacity:.7}
+
+.toast{position:fixed;right:16px;bottom:16px;background:#0d1933;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.35);border:1px solid #22345c}
+
+/* Subtle floating glow animation for the dropzone */
+@keyframes floatGlow { 0%,100% { filter: drop-shadow(0 0 0 rgba(59,130,246,0)); } 50% { filter: drop-shadow(0 0 22px rgba(59,130,246,.35)); } }
+.dropzone::after{content:"Paste, drop, or upload";position:absolute;bottom:16px;right:16px;font-size:12px;color:var(--muted);opacity:.9}
+.dropzone{animation: floatGlow 3.4s ease-in-out infinite}
+
+

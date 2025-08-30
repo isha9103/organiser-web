@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Organize — Effortless AI Organizer</title>
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+	<div class="shell" id="organizerShell">
+		<aside class="sidebar" aria-label="Primary">
+			<div class="brand">Organize</div>
+			<nav class="side-nav">
+				<button class="side-item active" data-view="home">Home</button>
+				<button class="side-item" data-view="dashboard">Dashboard</button>
+			</nav>
+			<div class="side-footer">Safe • Fast • Effortless</div>
+		</aside>
+
+		<main class="content" role="main" aria-live="polite">
+			<section id="homeView" class="view view-active" aria-label="Home">
+				<div class="ingest-card" role="region" aria-label="Add content">
+					<h2 class="ingest-title">Drop, paste, or paste a link</h2>
+					<div id="dropzone" class="dropzone" tabindex="0" aria-label="Drop files here or paste">
+						<div class="dz-illustration" aria-hidden="true"></div>
+						<p class="dz-help">Drag a screenshot here or <label for="fileInput" class="link">upload a file</label></p>
+						<input id="fileInput" type="file" accept="image/*,.pdf,.txt" hidden>
+						<div class="dz-sep" aria-hidden="true">OR</div>
+						<div class="dz-row">
+							<input id="urlInput" class="dz-input" type="url" placeholder="Paste image link or any URL">
+							<button id="saveBtn" class="btn primary" type="button">Save</button>
+						</div>
+					</div>
+					<div id="preview" class="preview" hidden></div>
+				</div>
+			</section>
+
+			<section id="dashboardView" class="view" aria-label="Dashboard" hidden>
+				<header class="dash-header">
+					<h2>Folders</h2>
+					<div class="dash-actions">
+						<button id="newFolderBtn" class="btn ghost" type="button">New Folder</button>
+					</div>
+				</header>
+				<div id="folderGrid" class="folder-grid"></div>
+				<section id="itemsSection" class="items" aria-label="Items"></section>
+			</section>
+		</main>
+	</div>
+
+	<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+	<script src="./script.js"></script>
+</body>
+</html>
+
+
